@@ -1,5 +1,5 @@
 # daily-terminal
-This is my personal set up for tmux and vim.
+This is my personal set up for tmux and vim. I tend to keep the default's key bindings, so is not only easier for you to reuse the configuration and adapt it to your key bindings of preference but I don't lose track of all the keys in the docs :)
 
 ## Brief introduction
 This includes some dependencies managed by tpm and Vundle plugin managers for each of these components.
