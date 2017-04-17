@@ -12,10 +12,20 @@ This set up is meant for macOS but works just fine with Linux Systems
 
 * tmux-mem-cpu-load, I got it installed with homebrew, therefore is not set up as a tmux plugin dependency.
 * tree, also installed via homebrew.
-* (tpm)[https://github.com/tmux-plugins/tpm]
-* (Vundle)[https://github.com/VundleVim/Vundle.vim]
+* tmux plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
+* Plugin Manager for vim: [Vundle](https://github.com/VundleVim/Vundle.vim)
+
+# Usage
+
+1. Clone the repository
+2. For the Vundle and tpm installation please refer to their respective websites.
+3. Rename the configuration files to match the configuration files to the respective sw.
+    * i.E. from **vimrc** to **.vimrc**
+4. Restart or reload the configuration files
+5. Enjoy!
 
 # Contact
-Arnulfo Solis
-arnulfo.solis@moreandcoffee.com
-twitter: arnulfojr
+
+* Arnulfo Solis
+* arnulfo.solis@moreandcoffee.com
+* twitter: arnulfojr
