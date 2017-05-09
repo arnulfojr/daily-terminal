@@ -35,6 +35,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jreybert/vimagit'
+Plugin 'nono/vim-handlebars'
 
 call vundle#end()
 
