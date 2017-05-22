@@ -39,6 +39,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jreybert/vimagit'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'edkolev/promptline.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mattn/emmet-vim'
+Plugin 'Townk/vim-autoclose'
+Plugin 'lumiliet/vim-twig'
+Plugin 'groenewege/vim-less'
+Plugin 'majutsushi/tagbar'
 Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()
@@ -53,6 +61,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
 " dismiss the warnings for AngularJs nG attributes in the html tidy section
 let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute \"ng-"]
+
+" Create a shortcut for the Tagbar
+nmap <F8> :TagbarOpenAutoClose<CR>
 
 filetype plugin indent on
 
