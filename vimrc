@@ -16,11 +16,15 @@ set cursorline
 " Highlight the search results
 set hlsearch
 " Allow insensitve case search
-set ignorecase
+" set ignorecase
 " Allow dynamic highlighting of search results
 set incsearch
 " Set status line
 set laststatus=2
+" Set the key timeout
+set timeout timeoutlen=1500
+" Use OS Clipboard
+set clipboard=unnamed
 
 if has("autocmd")
         autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
