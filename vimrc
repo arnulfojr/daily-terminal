@@ -50,6 +50,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-fugitive'
+" for more information about vim-fugitive:
+" http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/
 
 call vundle#end()
 
