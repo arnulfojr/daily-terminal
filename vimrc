@@ -48,12 +48,17 @@ Plugin 'lumiliet/vim-twig'
 Plugin 'groenewege/vim-less'
 Plugin 'majutsushi/tagbar'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'bling/vim-bufferline'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#vimagit#enabled = 1
+let g:bufferline_echo = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
