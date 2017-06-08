@@ -49,9 +49,12 @@ Plugin 'groenewege/vim-less'
 Plugin 'majutsushi/tagbar'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'bling/vim-bufferline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 " for more information about vim-fugitive:
 " http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
 
@@ -73,9 +76,19 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
 " dismiss the warnings for AngularJs nG attributes in the html tidy section
 let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute \"ng-"]
+" NERDTREE configuration
+" nerdtree starts auto all the time
+" autocmd vimenter * NERDTree
+" only when no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Show ignored files in NERDTree status
+let g:NERDTreeShowIgnoredStatus = 1
 
 " Create a shortcut for the Tagbar
 nmap <F8> :TagbarOpenAutoClose<CR>
+nmap <F2> :NERDTreeToggle<CR>
 
 filetype plugin indent on
 
