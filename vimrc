@@ -85,6 +85,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Show ignored files in NERDTree status
 let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeIgnore=['\.pyc$']
 
 " Create a shortcut for the Tagbar
 nmap <F8> :TagbarOpenAutoClose<CR>
