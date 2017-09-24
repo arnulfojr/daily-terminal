@@ -52,6 +52,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'davidhalter/jedi-vim'
 " for more information about vim-fugitive:
 " http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/
 Plugin 'Xuyuanp/nerdtree-git-plugin'
