@@ -2,9 +2,9 @@ syntax on
 set nocompatible
 filetype off
 " show existing tab with 4 spaces width
-set tabstop=4
+set tabstop=2
 " when indenting with '>', use 4 spaces width
-set shiftwidth=4
+set shiftwidth=2
 " Enhance command-line completion
 set wildmenu
 " On pressing tab, insert 4 spaces
@@ -25,6 +25,8 @@ set laststatus=2
 set timeout timeoutlen=1500
 " Use OS Clipboard
 set clipboard=unnamed
+" Allow backspacing
+set backspace=indent,eol,start
 
 if has("autocmd")
         autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
@@ -53,6 +55,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'posva/vim-vue'
+Plugin 'sotte/presenting.vim'
 " for more information about vim-fugitive:
 " http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -74,7 +78,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_generic = 1
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 " dismiss the warnings for AngularJs nG attributes in the html tidy section
 let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute \"ng-"]
 " NERDTREE configuration
@@ -86,7 +92,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Show ignored files in NERDTree status
 let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDTreeIgnore=['\.pyc$']
+let g:NERDTreeIgnore=['\.pyc$', '__pycache__']
+
+let g:ctrlp_custom_ignore = 'node_modules\|git'
 
 " Create a shortcut for the Tagbar
 nmap <F8> :TagbarOpenAutoClose<CR>
