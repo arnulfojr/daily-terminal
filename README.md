@@ -13,6 +13,7 @@ This set up is meant for macOS but works just fine with Linux Systems
 * tmux-mem-cpu-load, I got it installed with homebrew, therefore is not set up as a tmux plugin dependency.
 * tree, also installed via homebrew.
 * tmux plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
+* [teamocil](https://github.com/remiprev/teamocil)
 * Plugin Manager for vim: [Vundle](https://github.com/VundleVim/Vundle.vim)
 
 # Usage
@@ -23,6 +24,12 @@ This set up is meant for macOS but works just fine with Linux Systems
     * i.E. from **vimrc** to **.vimrc**
 4. Restart or reload the configuration files
 5. Enjoy!
+
+## Installing teamocil
+
+Run `gem install teamocil && mkdir ~/.teamocil` then save all the configurations there.
+
+For bash autocomplition add to `.bashrc` the following line `complete -W "$(teamocil --list)" teamocil`
 
 # Contact
 
