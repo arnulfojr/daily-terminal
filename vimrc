@@ -80,9 +80,23 @@ Plugin 'fatih/vim-go'
 "Plugin 'vim-vdebug/vdebug'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'auxiliary/vim-layout'
+Plugin 'lambdalisue/vim-pyenv'
 Plugin 'hashivim/vim-hashicorp-tools'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'jparise/vim-graphql'
+Plugin 'kshenoy/vim-signature'
+
+Plugin 'johngrib/vim-game-code-break'
 
 call vundle#end()
+
+let g:vim_game_code_break_item_limit = 4
+
+" set colorscheme
+"colorscheme falcon
+"" Falcon settings
+"let g:falcon_airline = 1
+"let g:airline_theme = 'falcon'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -134,6 +148,10 @@ if has("persistent_undo")
     set undodir=~/.undodir/
     set undofile
 endif
+
+" LimeLight
+" Change the unfocused paragraph to a darker color:
+"let g:limelight_conceal_ctermfg = 'gray'
 
 " Extesion configuration
 let g:airline_theme='bubblegum'
