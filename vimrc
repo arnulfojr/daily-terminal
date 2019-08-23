@@ -85,6 +85,7 @@ Plugin 'hashivim/vim-hashicorp-tools'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jparise/vim-graphql'
 Plugin 'kshenoy/vim-signature'
+Plugin 'jvirtanen/vim-hcl'
 
 Plugin 'johngrib/vim-game-code-break'
 
