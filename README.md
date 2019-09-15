@@ -5,7 +5,7 @@ This is my personal set up for tmux and vim. I tend to keep the default's key bi
 This includes some dependencies managed by tpm and Vundle plugin managers for each of these components.
 
 ## Aware
-So this is my configuration and this are my preferences you're free to take this as a base and extend or recommend different configurations, therefore this type of license attached in the repo.
+This is my personal configuration for my Terminal and there are my personal preferences. You're free to take this as a base and extend or recommend different configuartions.
 
 ## Dependencies
 This set up is meant for macOS but works just fine with Linux Systems
@@ -14,13 +14,20 @@ This set up is meant for macOS but works just fine with Linux Systems
 * tree, also installed via homebrew.
 * tmux plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
 * Plugin Manager for vim: [Vundle](https://github.com/VundleVim/Vundle.vim)
+* For better fonts and icons refer to [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+* Personally, I like the best the Ubuntu font the best but here's a list of the fonts I find good.
+  + Ubuntu Mono Nerd Font
+  + Mononoki Nerd Font
+  + FuraCode Nerd Font
+
+> I personally do not like font ligatures but up to you
 
 # Usage
 
 1. Clone the repository
 2. For the Vundle and tpm installation please refer to their respective websites.
 3. Rename the configuration files to match the configuration files to the respective sw.
-    * i.E. from **vimrc** to **.vimrc**
+  + i.E. from **vimrc** to **.vimrc**
 4. Restart or reload the configuration files
 5. Enjoy!
 
