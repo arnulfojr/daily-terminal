@@ -149,7 +149,8 @@ endif
 " ale configuration
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 1
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let b:ale_fixers = {'*': ['remove_trailing_lines'], 'javascript': ['prettier', 'eslint'], 'python': ['autopep8', 'yapf']}
 
 let g:vrc_curl_opts = {'--progress-bar': ''}
 
@@ -163,32 +164,9 @@ nmap <F8> :TagbarOpenAutoClose<CR>
 nmap <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <F3> :SyntasticCheck<CR>
 
-" nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-" imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-" nmap <F5> <Plug>(JavaComplete-Imports-Add)
-" imap <F5> <Plug>(JavaComplete-Imports-Add)
-" nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-" imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 if has("autocmd")
         autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
         autocmd BufNewFile,BufRead *.hbs setfiletype hbs syntax=html
-endif
-
-" Add Spelling check
-if has("spell")
-  " turn spelling on by default
-  " set spell
-
-  " toggle spelling with F4 key
-  map <F4> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
-
-  " they were using white on white
-  highlight PmenuSel ctermfg=black ctermbg=lightgray
-
-  " limit it to just the top 10 items
-  set sps=best,10
 endif
