@@ -1,14 +1,13 @@
 syntax on
 set nocompatible
 filetype off
-" TODO: change back to 4 spaces
-" show existing tab with 4 spaces width
+" show existing tab with 2 spaces width
 set tabstop=2
-" when indenting with '>', use 4 spaces width
+" when indenting with '>', use 2 spaces width
 set shiftwidth=2
 " Enhance command-line completion
 set wildmenu
-" On pressing tab, insert 4 spaces
+" On pressing tab, insert spaces
 set expandtab
 " Set line numbers
 set number
@@ -157,7 +156,7 @@ let g:vrc_curl_opts = {'--progress-bar': ''}
 let g:SuperTabDefaultCompletionType = "<F9>"
 
 " CTRL P ignore directories
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|__pycache__'
 
 " Create a shortcut for the Tagbar
 nmap <F8> :TagbarOpenAutoClose<CR>
