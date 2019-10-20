@@ -69,6 +69,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jvirtanen/vim-hcl'
 Plugin 'mhinz/vim-startify'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 
 Plugin 'johngrib/vim-game-code-break'
 Plugin 'ryanoasis/vim-devicons'
@@ -97,17 +99,6 @@ let g:airline#extensions#vimagit#enabled = 1
 
 let g:bufferline_echo = 0
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_javascript_checkers = ['standard', 'eslint']
-let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_java_javac_config_file_enabled = 0
-" dismiss the warnings for AngularJs nG attributes in the html tidy section
-let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute \"ng-"]
 " NERDTREE configuration
 " nerdtree starts auto all the time
 " autocmd vimenter * NERDTree
@@ -150,7 +141,7 @@ endif
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 1
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let b:ale_fixers = {'*': ['remove_trailing_lines'], 'javascript': ['prettier', 'eslint'], 'python': ['autopep8', 'yapf']}
+let g:ale_fixers = {'*': ['remove_trailing_lines'], 'javascript': ['prettier', 'eslint'], 'python': ['autopep8', 'yapf'], 'typescript': ['prettier', 'eslint']}
 
 let g:vrc_curl_opts = {'--progress-bar': ''}
 
