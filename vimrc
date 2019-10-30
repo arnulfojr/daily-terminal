@@ -18,7 +18,7 @@ set number
 " Highlight the search results
 set hlsearch
 " Allow insensitve case search
-" set ignorecase
+set ignorecase
 " Allow dynamic highlighting of search results
 set incsearch
 " Set status line
@@ -31,6 +31,8 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 " set encoding to utf-8
 set encoding=UTF-8
+" set the mapleader
+let mapleader = ","
 
 " Activate Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -38,7 +40,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'jreybert/vimagit'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'edkolev/promptline.vim'
@@ -60,7 +61,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'posva/vim-vue'
 Plugin 'mbbill/undotree'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'w0rp/ale'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'hashivim/vim-terraform'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-eunuch'
@@ -81,6 +82,49 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" TODO: change to proper node
+let g:coc_node_path = '/Users/asolis/.nvm/versions/node/v12.9.1/bin/node'
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+" Use :Prettier to format current buffer
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
 let g:airline_powerline_fonts = 1
 
 " UndoTree
@@ -94,26 +138,8 @@ endif
 
 " Extesion configuration
 let g:airline#extensions#tabline#enabled = 1
-
 let g:airline#extensions#vimagit#enabled = 1
-
 let g:bufferline_echo = 0
-
-" NERDTREE configuration
-" nerdtree starts auto all the time
-" autocmd vimenter * NERDTree
-" only when no files were specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Latex
-let g:tex_flavor='latex'
-let g:syntastic_tex_checkers = ['lacheck']
-" avoid folding
-let g:Tex_FoldedSections     = ""
-let g:Tex_FoldedEnvironments = ""
-let g:Tex_FoldedMisc         = ""
 
 " Show ignored files in NERDTree status
 let g:NERDTreeShowIgnoredStatus = 1
@@ -137,12 +163,6 @@ if jedi#init_python()
   augroup END
 endif
 
-" ale configuration
-let g:airline#extensions#ale#enabled = 1
-let g:ale_completion_enabled = 1
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_fixers = {'*': ['remove_trailing_lines'], 'javascript': ['prettier', 'eslint'], 'python': ['autopep8', 'yapf'], 'typescript': ['prettier', 'eslint']}
-
 let g:vrc_curl_opts = {'--progress-bar': ''}
 
 let g:SuperTabDefaultCompletionType = "<F9>"
@@ -151,12 +171,10 @@ let g:SuperTabDefaultCompletionType = "<F9>"
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|__pycache__'
 
 " Create a shortcut for the Tagbar
-nmap <F8> :TagbarOpenAutoClose<CR>
 nmap <F2> :NERDTreeToggle<CR>
-nnoremap <silent> <F3> :SyntasticCheck<CR>
+nmap <F8> :TagbarOpenAutoClose<CR>
 
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
 if has("autocmd")
         autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
         autocmd BufNewFile,BufRead *.hbs setfiletype hbs syntax=html
